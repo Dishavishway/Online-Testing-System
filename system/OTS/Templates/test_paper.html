@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block title %}
+!!~~ Online Test Paper ~~!!
+{% endblock title %}
+
+
+{% block content %}
+<form action = "{% url 'OTS:calculateTest' %}" method = "POST">
+    {% csrf_token %}
+    {% for question in question %}
+     <div class="question">
+        <input type = "hidden" name = "que_no{{question.que_id}}" value = "{{question.que_id}}">
+        {{question.que}}
+    </div> <br><br>
+
+    <div class = "options"><input type = "radio" name = "q{{question.que_id}}" value = "a">{{question.a}}</div>
+    <br>
+
+    <div class = "options"><input type = "radio" name = "q{{question.que_id}}" value = "b">{{question.b}}</div>
+    <br>
+    
+    <div class = "options"><input type = "radio"name = "q{{question.que_id}}" value = "c">{{question.c}}</div>
+    <br>
+
+    <div class = "options"><input type = "radio" name = "q{{question.que_id}}" value = "d">{{question.d}}</div>
+    <br><br><br>
+    
+    {% endfor %}
+
+    <div>
+        <input type = "submit" value = "submit">
+    </div>
+</form>
+{% endblock content %}

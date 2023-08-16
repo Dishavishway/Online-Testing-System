@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'buttonstyle.css' %}"/>
+    <link rel="stylesheet" href="{% static 'formstyle.css' %}"/>
+    <link rel="stylesheet" href="{% static 'theme.css' %}"/>
+</head>
+<body>
+    <div class = 'top'>
+        <div class = 'sitename'>
+            <h1>ONLINE TESTING SYSTEM</h1>
+        </div>
+        <div class = 'menu'>
+            {% block top %}{% endblock top %}
+        </div>
+    </div>
+    <div class = 'content'>
+        {% block content %}{% endblock content %}
+    </div>
+</body>
+</html>

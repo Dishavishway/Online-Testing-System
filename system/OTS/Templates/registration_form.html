@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+
+{% block title %}
+Online Testing System Registration Form
+{% endblock title %}
+
+{% block top %}
+<a href = "{% url 'OTS:login' %}">Login</a><br><br>
+{% endblock top %}
+
+{% block content %}
+<div class="all-form">
+    <form action="{% url 'OTS:storeCandidate' %}"   method="post">
+        {% csrf_token %}
+        <label for="username">username</label>
+        <input type="text" name="username">
+        <br><br><br>
+
+        <label for="password">Password</label>
+        <input type="password" name="password">
+        <br><br><br>
+
+        <label for="name">Name</label>
+        <input type="text" name="name">
+        <br><br><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="clear">
+    </form>
+</div>
+{% endblock content %}

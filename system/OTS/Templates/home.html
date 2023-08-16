@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+{% block title %}
+Online Testing System - Home Page
+{% endblock title %}
+
+{% block top %}
+<a href = "{% url 'OTS:home' %}">Home</a>
+<a href = "{% url 'OTS:logout' %}">Logout</a>
+{% endblock top %}
+
+{% block content %}
+<h2>Welcome {{request.session.name}}, to your Home Page.....!!</h2>
+
+<div class = "button-link">
+    <a href = "{% url 'OTS:testPaper' %}?n=1">
+        Test of one Question
+    </a>
+</div><br>
+
+<div class = "button-link">
+    <a href = "{% url 'OTS:testPaper' %}?n=2">
+        Test of Two Question
+    </a>
+</div><br>
+
+<div class = "button-link">
+    <a href = "{% url 'OTS:testPaper' %}?n=3">
+        Test of Three Question
+    </a>
+</div><br>
+
+<div class = "button-link">
+    <a href = "{% url 'OTS:testPaper' %}?n=4">
+        Test of four Question
+    </a>
+</div><br>
+
+<div class = "button-link">
+    <a href = "{% url 'OTS:testHistory' %}">
+        Test History
+    </a>
+</div><br>
+{% endblock content %}

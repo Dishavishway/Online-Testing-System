@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+
+{% block title %}
+Online Testing System - Test Result
+{% endblock title %}
+
+{% block top %}
+<a href = "{% url 'OTS:home' %}">HOME</a>
+<a href = "{% url 'OTS:logout' %}">Login</a>
+{% endblock top %}
+
+{% block content %}
+<h1>Your Report Card</h1>
+<p>Hey <span class="special">{{candidate.name}}</span>,
+    You have attempted in total<span class="special">{{candidate.test_attempt}}</span>,
+    test and you scored<span class="special">{{candidate.Points}}</span>
+</p>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Attempt</th>
+        <th>Right</th>
+        <th>Wrong</th>
+        <th>Points</th>
+    </tr>
+    {% for r in result %}
+    <tr>
+        <th>{{r.date}}</th>
+        <th>{{r.time}}</th>
+        <th>{{r.attempt}}</th>
+        <th>{{r.right}}</th>
+        <th>{{r.wrong}}</th>
+        <th>{{r.points}}</th>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock content %}
