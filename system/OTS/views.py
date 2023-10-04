@@ -124,7 +124,7 @@ def showTestResult(request):
     context = {'result': result}
     res = render(request, 'show_result.html', context)
     return res
-
+ 
 def logout(request):
     if 'name' in request.session.keys():
         del request.session['username']
